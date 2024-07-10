@@ -1,0 +1,7 @@
+{
+    "files.exclude": {
+        "**/*.pyc": {"when": "$(basemame).py"},
+        "**/__pycache__": true,
+        "**/*.pytest_cache": true,
+    }
+}
