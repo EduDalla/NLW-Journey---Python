@@ -9,15 +9,15 @@ class ActivitiesRepository:
         cursor = self.__conn.cursor()
         cursor.execute(
             '''
-                INSERT INTO pariticipants
-                (id, trip_id title, accurs_at)
+                INSERT INTO activities
+                (id, trip_id, title, occurs_at)
                 VALUES
                     (?, ?, ?, ?)
             ''',(
                 activity_infos["id"],
                 activity_infos["trip_id"],
                 activity_infos["title"],
-                activity_infos["accurs_at"]
+                activity_infos["occurs_at"],
             )
         )
         self.__conn.commit()
@@ -27,7 +27,7 @@ class ActivitiesRepository:
         cursor.execute(
             '''
                 SELECT * FROM activities WHERE trip_id = ?
-            ''', (trip_id)
+            ''', (trip_id,)
         )
         activities = cursor.fetchall()
         return activities
